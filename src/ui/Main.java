@@ -1,8 +1,23 @@
+
+
+
+
+
+// Muy pailita pa Sistemas, una disculpaaaa a cualquiera que lea estooo
+
+
+
+
+
 package ui;
 
 import java.util.Scanner;
 import structures.PilaGenerica;
 import structures.TablasHash;
+
+
+
+
 
 public class Main {
 
@@ -12,8 +27,15 @@ public class Main {
         sc = new Scanner(System.in);
     }
 
+
+
+
     public void ejecutar() throws Exception {
+
+
         while (true) {
+
+
             System.out.println("\nSeleccione la opcion:");
             System.out.println("1. Punto 1, Verificar balanceo de expresión");
             System.out.println("2. Punto 2, Encontrar pares con suma objetivo");
@@ -24,12 +46,21 @@ public class Main {
             sc.nextLine(); 
 
             switch (opcion) {
+
+
+
+
                 case 1:
                     System.out.println("Ingrese expresion a verificar:");
                     String expresion = sc.nextLine();
                     boolean resultado = verificarBalanceo(expresion);
                     System.out.println("Resultado: " + (resultado ? "TRUE" : "FALSE"));
                     break;
+
+
+
+
+
 
                 case 2:
                     System.out.println("Ingrese numeros separados por espacio: ");
@@ -46,27 +77,105 @@ public class Main {
                     encontrarParesConSuma(numeros, objetivo);
                     break;
 
+
+
+
+
                 case 3:
-                    System.out.println("Chao");
+                    System.out.println("Chaitoo");
                     sc.close();
                     System.exit(0);
                     break;
 
+
+
+
+
                 default:
                     System.out.println("Opcion no permitida");
+
+
             }
+
+
         }
+
+
     }
+
+
+
+
+
+
+
+    /**¨PRIMER PUNTO */
+
+
+
+
+
+
 
     /**
      * Verifica si la expresion esta balanceada usando PilaGenerica
      * @param s expresion a verificar
      * @return true si esta balanceada, false si no
      */
+
+
+
+
+
     public boolean verificarBalanceo(String s) {
-        // TODO: completar 
-        return false;
+
+        PilaGenerica<Character> pila = new PilaGenerica<>(0);
+        
+        for (int i = 0; i < s.length(); i++) {
+
+            char c = s.charAt(i);
+
+            if (c == '(' || c == '[' || c == '{' ){
+                pila.Push(c);
+    
+            } else if (c == ')' || c == ']' || c == '}') {
+
+
+                Character ultimo = pila.Pop();
+
+
+
+                if (ultimo == null) {
+
+                    return false; 
+                    
+                }
+
+
+                if ( c == ')' && ultimo != '(' ) return false;
+                if ( c == ']' && ultimo != '[' ) return false;
+                if ( c == '}' && ultimo != '{' ) return false;
+
+                
+
+
+            }
+
+
+        }
+
+        
+       return 
+
     }
+
+
+
+
+
+
+
+
 
     /**
      * Encuentra y muestra todos los pares unicos de numeros que sumen objetivo usando TablasHash.
@@ -77,8 +186,16 @@ public class Main {
         // TODO: completar
     }
 
+
+
+
+
     public static void main(String[] args) throws Exception {
         Main app = new Main();
         app.ejecutar();
+
+
     }
+
+
 }

@@ -3,6 +3,12 @@ package structures;
 import java.lang.IndexOutOfBoundsException;
 import java.lang.StackOverflowError;
 
+
+
+
+
+
+
 public class PilaGenerica<T> {
   private T[] arreglo;
   private int top;
@@ -54,4 +60,8 @@ public class PilaGenerica<T> {
   public void setSize(int size) {
     this.size = size;
   }
+
+
+
+  
 }
